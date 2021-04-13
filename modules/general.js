@@ -49,6 +49,10 @@ module.exports = async (client, msg) => {
     msg.channel.send(`@everyone sahur guysss`)
   }
   if (query.includes('buka')) {
-    replyImage(msg, "wangy", "Selamat berbuka puasa guys, nih mimin kasih yg wangy :D")
+    if (query.includes('puasa')) {
+      replyImage(msg, "wangy", "Selamat berbuka puasa guys, nih mimin kasih yg wangy :D")
+    } else {
+      msg.channel.send(`Selamat berbuka puasa guysss`)
+    }
   }
 }
