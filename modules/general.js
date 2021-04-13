@@ -20,7 +20,7 @@ module.exports = async (client, msg) => {
   if (author !== idAkbar && (query.includes('bar') || query.includes('akbar'))) {
     msg.channel.send(`<@${idAkbar}> dipanggil <@${author}> tuh`)
   }
-  if (author !== idYuuqi && (query.includes('qi') || query.includes('ki') || query.includes('yuuqi') || query.includes('ki'))) {
+  if (author !== idYuuqi && !query.includes('!qi') && (query.includes('qi') || query.includes('ki') || query.includes('yuuqi') || query.includes('ki'))) {
     msg.channel.send(`<@${idYuuqi}> dipanggil <@${author}> tuh`)
   }
   if (author !== idRey && query.includes('rey')) {
