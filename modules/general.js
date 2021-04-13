@@ -1,7 +1,7 @@
 const { replyImage } = require("../utils")
 
 module.exports = async (client, msg) => {
-  const query = msg.content
+  const query = msg.content.toLowerCase()
   
   const idArip = "336055510774317057"
   const idIcal = "460801785527926794"

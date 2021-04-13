@@ -7,14 +7,14 @@ module.exports = async (client, msg) => {
 
   if (query === '' || query === ' ') {
     msg.reply(greeting[Math.floor(Math.random() * greeting.length)]);
-  } else if (query.includes('help')) {
+  } else if (query.toLowerCase().includes('help')) {
     makeEmbed({
       title: 'List Commands',
       desc: "!qi => manggil BOT\n!qi help => list commands\n!qi wf => gacha waifu\n!qi wf wangy => gacha waifu wangy\n!qi bc :channel :message => broadcast message\n!qi tag :jumlah_pesan :@user => tag user"
     }, (embed) => {
       msg.reply('', embed)
     })
-  } else if (query.includes('bc')) {
+  } else if (query.toLowerCase().includes('bc')) {
     const str = query.split('bc ').pop()
     var index = str.indexOf(' ')
     var split = [str.slice(0, index), str.slice(index + 1)]
@@ -25,7 +25,7 @@ module.exports = async (client, msg) => {
     const channel = msg.guild.channels.cache.find(ch => ch.name === channelBc);
     if (!channel) return;
     channel.send(messageBc);
-  } else if (query.includes('tag')) {
+  } else if (query.toLowerCase().includes('tag')) {
     const str = query.split('tag ').pop()
     var index = str.indexOf(' ')
     var split = [str.slice(0, index), str.slice(index + 1)]
