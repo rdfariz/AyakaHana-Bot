@@ -20,13 +20,13 @@ module.exports = async (client, msg) => {
   if (author !== idAkbar && (query.includes('bar') || query.includes('akbar'))) {
     msg.channel.send(`<@${idAkbar}> dipanggil <@${author}> tuh`)
   }
-  if (author !== idYuuqi && !query.includes('!qi') && (query.includes('qi') || query.includes('ki') || query.includes('yuuqi') || query.includes('ki'))) {
+  if (author !== idYuuqi && !query.includes('!qi') && (query.includes('qi') || query.includes('yuuqi'))) {
     msg.channel.send(`<@${idYuuqi}> dipanggil <@${author}> tuh`)
   }
   if (author !== idRey && query.includes('rey')) {
     msg.channel.send(`<@${idRey}> dipanggil <@${author}> tuh`)
   }
-  if (author !== idFandy && (query.includes('fan') || query.includes('fandy') || query.includes('fandi'))) {
+  if (author !== idFandy && (query.includes('fandy') || query.includes('fandi'))) {
     msg.channel.send(`<@${idFandy}> dipanggil <@${author}> tuh`)
   }
 
@@ -39,7 +39,7 @@ module.exports = async (client, msg) => {
     const msgReply = ["mending main sama aku sini kak :3", "nambang skuyy", "pubg ga qi"]
     msg.reply(msgReply[Math.floor(Math.random() * msgReply.length)])
   }
-  if (query.includes('wkwk') || query.includes('wkkw')) {
+  if (query.includes('wkwk') || query.includes('wkkw') || query.includes('wokawok') || query.includes('waokawo') || query.includes('waokaow')) {
     const msgReply = ["awokwaokw", "wkwkkw", "wkkwk", "kocakk XD"]
     msg.channel.send(msgReply[Math.floor(Math.random() * msgReply.length)])
   }
@@ -52,7 +52,7 @@ module.exports = async (client, msg) => {
     if (query.includes('puasa')) {
       replyImage(msg, "wangy", "Selamat berbuka puasa guys, nih mimin kasih yg wangy :D")
     } else {
-      msg.channel.send(`Selamat berbuka puasa guysss`)
+      // msg.channel.send(`Selamat berbuka puasa guysss`)
     }
   }
 }
