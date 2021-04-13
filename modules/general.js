@@ -11,7 +11,7 @@ module.exports = async (client, msg) => {
   const idFandy = "806402900766490644"
 
   const author = msg.author.id
-  if (author !== idIcal && (query === 'cal' || query.includes(' cal') || query.includes('cal ') || || query.includes('ical'))) {
+  if (author !== idIcal && (query === 'cal' || query.includes(' cal') || query.includes('cal ') || query.includes('ical'))) {
     msg.channel.send(`<@${idIcal}> dipanggil <@${author}> tuh`)
   }
   if (author !== idArip && (query === 'rip' || query === 'rif' || query.includes(' rip') || query.includes('rip ') || query.includes('rif') || query.includes('arip') || query.includes('arief') || query.includes('aray'))) {
