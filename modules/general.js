@@ -45,7 +45,7 @@ module.exports = async (client, msg) => {
   }
 
   // Ramadhan
-  if (query.includes('sahur')) {
+  if (query.includes('sahur') || query.includes('saur')) {
     msg.channel.send(`@everyone sahur guysss`)
   }
   if (query.includes('buka')) {
