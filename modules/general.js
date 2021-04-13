@@ -31,7 +31,7 @@ module.exports = async (client, msg) => {
   }
 
   // Filter
-  if (query.includes('anjing') || query.includes('ajing')) {
+  if (query.includes('anjing') || query.includes('ajing') || query.includes('ajg')) {
     const msgReply = ["Astaghfirullah, jgn kasar :("]
     msg.reply(msgReply[Math.floor(Math.random() * msgReply.length)])
   }
