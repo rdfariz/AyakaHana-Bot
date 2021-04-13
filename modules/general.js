@@ -11,22 +11,22 @@ module.exports = async (client, msg) => {
   const idFandy = "806402900766490644"
 
   const author = msg.author.id
-  if (author !== idIcal && (query.includes('cal') || query.includes('ical'))) {
+  if (author !== idIcal && (query === 'cal' || query.includes('ical'))) {
     msg.channel.send(`<@${idIcal}> dipanggil <@${author}> tuh`)
   }
-  if (author !== idArip && (query.includes('rip') || query.includes('rif') || query.includes('arip') || query.includes('arief') || query.includes('aray'))) {
+  if (author !== idArip && (query === 'rip' || query === 'rif' || query.includes('rip') || query.includes('rif') || query.includes('arip') || query.includes('arief') || query.includes('aray'))) {
     msg.channel.send(`<@${idArip}> dipanggil <@${author}> tuh`)
   }
-  if (author !== idAkbar && (query.includes('bar') || query.includes('akbar'))) {
+  if (author !== idAkbar && (query === 'bar' || query.includes('akbar'))) {
     msg.channel.send(`<@${idAkbar}> dipanggil <@${author}> tuh`)
   }
-  if (author !== idYuuqi && !query.includes('!qi') && (query.includes('qi') || query.includes('yuuqi'))) {
+  if (author !== idYuuqi && !query.includes('!qi') && (query === 'ki' || query === 'qi' || query.includes('yuuqi'))) {
     msg.channel.send(`<@${idYuuqi}> dipanggil <@${author}> tuh`)
   }
   if (author !== idRey && query.includes('rey')) {
     msg.channel.send(`<@${idRey}> dipanggil <@${author}> tuh`)
   }
-  if (author !== idFandy && (query.includes('fandy') || query.includes('fandi'))) {
+  if (author !== idFandy && (query === 'fan' || query.includes('fandy') || query.includes('fandi'))) {
     msg.channel.send(`<@${idFandy}> dipanggil <@${author}> tuh`)
   }
 
