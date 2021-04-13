@@ -27,13 +27,7 @@ function makeEmbed ({ title = '', image = '', desc = '' }, callback) {
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
-    client.user.setPresence({
-        status: "online",  //You can show online, idle....
-        game: {
-          name: "Using !qi",  //The message shown
-          type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    });
+  client.user.setActivity('!qi', { type: 'PLAYING' });
 })
 
 // Add Welcome
