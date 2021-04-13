@@ -39,7 +39,7 @@ module.exports = async (client, msg) => {
     const msgReply = ["mending main sama aku sini kak :3", "nambang skuyy", "pubg ga qi"]
     msg.reply(msgReply[Math.floor(Math.random() * msgReply.length)])
   }
-  if (query.includes('wkwk') || query.includes('wkkw') || query.includes('wokawok') || query.includes('waokawo') || query.includes('waokaow')) {
+  if (query.includes('wkwk') || query.includes('wkkw') || query.includes('owk') || query.includes('awok') || query.includes('waok') || query.includes('aowk')) {
     const msgReply = ["awokwaokw", "wkwkkw", "wkkwk", "kocakk XD"]
     msg.channel.send(msgReply[Math.floor(Math.random() * msgReply.length)])
   }
