@@ -1,16 +1,17 @@
+const { prefix } = require("../config.json")
 const { makeEmbed } = require("../utils")
 
 const greeting = ["oit kenapa?", "apaan?", "ada apa nih?"]
 
 module.exports = async (client, msg) => {
-  const query = msg.content.split('!qi').pop()
+  const query = msg.content.split(prefix).pop()
 
   if (query === '' || query === ' ') {
     msg.reply(greeting[Math.floor(Math.random() * greeting.length)]);
   } else if (query.toLowerCase().includes('help')) {
     makeEmbed({
       title: 'List Commands',
-      desc: "!qi => manggil BOT\n!qi help => list commands\n!qi wf => gacha waifu\n!qi wf wangy => gacha waifu wangy\n!qi bc :channel :message => broadcast message\n!qi tag :jumlah_pesan :@user => tag user"
+      desc: `${prefix} => manggil BOT\n${prefix} help => list commands\n${prefix} wf => gacha waifu\n${prefix} wf wangy => gacha waifu wangy\n${prefix} bc :channel :message => broadcast message\n${prefix} tag :jumlah_pesan :@user => tag user`
     }, (embed) => {
       msg.reply('', embed)
     })

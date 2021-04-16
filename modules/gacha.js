@@ -1,7 +1,8 @@
+const { prefix } = require("../config.json")
 const { replyImage } = require("../utils")
 
 module.exports = async (client, msg) => {
-  const query = msg.content.split('!qi').pop().toLowerCase()
+  const query = msg.content.split(prefix).pop().toLowerCase()
   
   if (query.includes('wf')) {
     const category = query.split('wf ').pop()
