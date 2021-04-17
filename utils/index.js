@@ -14,8 +14,8 @@ const responseWaifu = [
   "Kayaknya kalian kurang serasi deh :("
 ]
 
-function makeEmbed ({ title = '', image = '', desc = '' }, callback) {
-  const embed = new MessageEmbed()
+async function makeEmbed ({ title = '', image = '', desc = '' }, callback) {
+  const embed = await new MessageEmbed()
     .setTitle(title)
     .setImage(image)
     .setColor(0xff0000)
@@ -31,7 +31,14 @@ function makeEmbedWelcome (member, callback) {
   return callback(embed)
 }
 
-function replyImage (msg, category, text = responseWaifu[Math.floor(Math.random() * responseWaifu.length)]) {
+function makeEmbedText (text, callback) {
+  const embed = new MessageEmbed()
+    .setDescription(text)
+    .setColor("FF0000");
+  return callback(embed)
+}
+
+async function replyImage (msg, category, text = responseWaifu[Math.floor(Math.random() * responseWaifu.length)]) {
   if (category.includes('wangy')) {
     const anime = randomanime.anime()
     makeEmbed({ image: anime }, (embed) => {
@@ -44,13 +51,13 @@ function replyImage (msg, category, text = responseWaifu[Math.floor(Math.random(
     })
   } else {
     animePictures.random()
-    .then(result => {
+    .then(async result => {
       const obj = { title: result.name, image: result.character_image, desc: result.desc }
-      makeEmbed(obj, (embed) => {
+      await makeEmbed(obj, (embed) => {
         msg.reply(text, embed);
       })
     });
   }
 }
 
-module.exports = { makeEmbed, makeEmbedWelcome, replyImage }
+module.exports = { makeEmbed, makeEmbedText, makeEmbedWelcome, replyImage }

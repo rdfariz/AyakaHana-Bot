@@ -7,9 +7,7 @@ const { makeEmbedWelcome } = require("./utils")
 const gacha = require("./modules/gacha")
 const greeting = require("./modules/greeting")
 const general = require("./modules/general")
-const { execute, stop, skip } = require("./modules/music")
-
-const queue = new Map()
+const music = require("./modules/music")
 
 const idGamerNubi = "704446762059956274"
 const chWelcomeGamerNubi = "814485275307671612"
@@ -25,25 +23,14 @@ client.on("message", async msg => {
   if (msg.guild.id === idGamerNubi) {
     general(client, msg)
   }
+
+  music(client, msg)
   
-  if (!msg.content.startsWith(prefix)) {
-    return
-  } else if (msg.content.startsWith(prefix)) {
+  if (msg.content.startsWith(prefix)) {
     gacha(client, msg)
     greeting(client, msg)
-  }
-
-  // Music
-  const serverQueue = queue.get(msg.guild.id);
-  if (msg.content.startsWith(`${prefix}play`)) {
-    execute(msg, serverQueue);
-    return;
-  } else if (msg.content.startsWith(`${prefix}skip`)) {
-    skip(msg, serverQueue);
-    return;
-  } else if (msg.content.startsWith(`${prefix}stop`)) {
-    stop(msg, serverQueue);
-    return;
+  } else if (!msg.content.startsWith(prefix)) {
+    return
   }
 })
 
