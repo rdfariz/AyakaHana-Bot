@@ -16,11 +16,11 @@ const queue = new Map()
 async function music (client, msg) {
   const serverQueue = queue.get(msg.guild.id);
 
-  if (msg.content.startsWith('!!p')) {
-    execute(msg, serverQueue, '!!p');
-    return;
-  } else if (msg.content.startsWith('!!play')) {
+  if (msg.content.startsWith('!!play')) {
     execute(msg, serverQueue, '!!play');
+    return;
+  } else if (msg.content.startsWith('!!p')) {
+    execute(msg, serverQueue, '!!p');
     return;
   } else if (msg.content.startsWith('!!skip')) {
     skip(msg, serverQueue, '!!skip');
@@ -39,12 +39,12 @@ async function execute(message, serverQueue, localPrefix){
   if(!vc){
     return message.channel.send("Please join a voice chat first");
   }else{
-    const args = message.content.slice(localPrefix.length).trim().split(/ +/g)
-    const query = args.join(" ")
+    const query = message.content.slice(localPrefix.length)
+    const queryTrim = query.trim()
 
-    if (validUrl.isUri(query)){
-      if (ytdl.validateURL(query)) {
-        const songInfo = await ytdl.getInfo(query)
+    if (validUrl.isUri(queryTrim)){
+      if (ytdl.validateURL(queryTrim)) {
+        const songInfo = await ytdl.getInfo(queryTrim)
         const song = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url
@@ -53,7 +53,7 @@ async function execute(message, serverQueue, localPrefix){
       } else {
         try {
           // Playlist
-          const playlistId = await ytpl.getPlaylistID(query)
+          const playlistId = await ytpl.getPlaylistID(queryTrim)
           const playlist = await ytpl(playlistId);
           const songs = await playlist.items.map((item) => {
             return {
