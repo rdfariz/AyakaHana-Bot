@@ -10,14 +10,14 @@ module.exports = async (client, msg) => {
   if (queryTrim === '' || queryTrim === ' ') {
     makeEmbed({
       title: 'List Commands',
-      desc: `${prefix} => manggil BOT\n${prefix} help => list commands\n${prefix} wf => gacha waifu\n${prefix} wf wangy => gacha waifu wangy\n\n$p :music => Play Music\n$skip => Skip Music\n$stop => Stop Music\n$dc => Disconnect Music\n\n${prefix} bc :channel :message => broadcast message\n${prefix} tag :jumlah_pesan :@user => tag user`
+      desc: `${prefix} => manggil BOT\n${prefix} help => list commands\n${prefix} wf => gacha waifu\n${prefix} wf wangy => gacha waifu wangy\n\n!!p :music => Play Music\n!!skip => Skip Music\n!!stop => Stop Music\n!!dc => Disconnect Music\n\n${prefix} bc :channel :message => broadcast message\n${prefix} tag :jumlah_pesan :@user => tag user`
     }, (embed) => {
       msg.reply(greeting[Math.floor(Math.random() * greeting.length)], embed)
     })
   } else if (query.toLowerCase().includes('help')) {
     makeEmbed({
       title: 'List Commands',
-      desc: `${prefix} => manggil BOT\n${prefix} help => list commands\n${prefix} wf => gacha waifu\n${prefix} wf wangy => gacha waifu wangy\n${prefix} bc :channel :message => broadcast message\n${prefix} tag :jumlah_pesan :@user => tag user`
+      desc: `${prefix} => manggil BOT\n${prefix} help => list commands\n${prefix} wf => gacha waifu\n${prefix} wf wangy => gacha waifu wangy\n\n!!p :music => Play Music\n!!skip => Skip Music\n!!stop => Stop Music\n!!dc => Disconnect Music\n\n${prefix} bc :channel :message => broadcast message\n${prefix} tag :jumlah_pesan :@user => tag user`
     }, (embed) => {
       msg.reply('', embed)
     })

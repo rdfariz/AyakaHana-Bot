@@ -1,7 +1,7 @@
 const ytdl = require('ytdl-core')
 const ytpl = require('ytpl')
 const validUrl = require('valid-url');
-const { prefix, youtubeApi } = require("../config.json")
+const { youtubeApi } = require("../config.json")
  
 const { makeEmbedText } = require('../utils')
 const { YTSearcher } = require('ytsearcher');
@@ -16,20 +16,20 @@ const queue = new Map()
 async function music (client, msg) {
   const serverQueue = queue.get(msg.guild.id);
 
-  if (msg.content.startsWith('$p')) {
-    execute(msg, serverQueue, '$p');
+  if (msg.content.startsWith('!!p')) {
+    execute(msg, serverQueue, '!!p');
     return;
-  } else if (msg.content.startsWith('$play')) {
-    execute(msg, serverQueue, '$play');
+  } else if (msg.content.startsWith('!!play')) {
+    execute(msg, serverQueue, '!!play');
     return;
-  } else if (msg.content.startsWith('$skip')) {
-    skip(msg, serverQueue, '$skip');
+  } else if (msg.content.startsWith('!!skip')) {
+    skip(msg, serverQueue, '!!skip');
     return;
-  } else if (msg.content.startsWith('$stop')) {
-    stop(msg, serverQueue, '$stop');
+  } else if (msg.content.startsWith('!!stop')) {
+    stop(msg, serverQueue, '!!stop');
     return;
-  } else if (msg.content.startsWith('$dc')) {
-    dc(msg, serverQueue, '$dc')
+  } else if (msg.content.startsWith('!!dc')) {
+    dc(msg, serverQueue, '!!dc')
   }
 }
 

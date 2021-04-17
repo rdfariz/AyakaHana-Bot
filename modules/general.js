@@ -22,7 +22,7 @@ module.exports = async (client, msg) => {
   if (author !== idAkbar && (query === 'bar' || query === 'akbar')) {
     msg.channel.send(`<@${idAkbar}> dipanggil <@${author}> tuh`)
   }
-  if (author !== idYuuqi && !query.includes('!qi') && (query === 'ki' || query === 'qi' || query === 'yuuqi' || query === 'yuuki')) {
+  if (author !== idYuuqi && (query === 'ki' || query === 'qi' || query === 'yuuqi' || query === 'yuuki')) {
     msg.channel.send(`<@${idYuuqi}> dipanggil <@${author}> tuh`)
   }
   if (author !== idRey && query === 'rey') {

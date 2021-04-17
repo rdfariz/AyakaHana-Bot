@@ -3,8 +3,6 @@ const { MessageEmbed } = Discord
 const animePictures = require('anime-pictures')
 const randomanime = require("random-anime")
 
-const { server } = require("../config.json")
-
 const responseWaifu = [
   "Waifu kamu nihh, langgeng yaa",
   "Wuihh, hoki bngt kakkk",
@@ -26,7 +24,7 @@ async function makeEmbed ({ title = '', image = '', desc = '' }, callback) {
 function makeEmbedWelcome (member, callback) {
   const embed = new MessageEmbed()
     .setAuthor(`${member.user.tag} just joined!`, member.user.avatarURL())
-    .setDescription(`${member} Welcome to ${server}! Don't forget to read the <#787051075520692235>!`)
+    .setDescription(`${member} Welcome to ${msg.guild.name}! Don't forget to read the <#787051075520692235>!`)
     .setColor("FF0000");
   return callback(embed)
 }
