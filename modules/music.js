@@ -68,30 +68,37 @@ async function execute(message, serverQueue, localPrefix){
         }
       }
     } else {
-      const result = await searcher.search(query, { type: "video" })
-      const songInfo = await ytdl.getInfo(result.first.url)
-      const song = {
-        title: songInfo.videoDetails.title,
-        url: songInfo.videoDetails.video_url
-      };
-      addMusic(message, song)
+      try {
+        const result = await searcher.search(query, { type: "video" })
+        const songInfo = await ytdl.getInfo(result.first.url)
+        const song = {
+          title: songInfo.videoDetails.title,
+          url: songInfo.videoDetails.video_url
+        };
+        addMusic(message, song)
+      } catch (err) {
+        return message.channel.send("Server doesn't respond, try using url video.")
+      }
     }
   }
 }
-function play(guild, song){
+async function play(guild, song){
   const serverQueue = queue.get(guild.id);
   if(!song){
       serverQueue.vChannel.leave();
       queue.delete(guild.id);
       return;
   }
+
+  let msgPlaying = {}
   const dispatcher = serverQueue.connection
       .play(ytdl(song.url))
       .on('finish', () =>{
+          msgPlaying.delete()
           serverQueue.songs.shift();
           play(guild, serverQueue.songs[0]);
       })
-      serverQueue.txtChannel.send(`Now playing ${serverQueue.songs[0].url}`)
+      msgPlaying = await serverQueue.txtChannel.send(`Now playing ${serverQueue.songs[0].url}`)
 }
 function stop (message, serverQueue){
   if(!message.member.voice.channel)
@@ -157,12 +164,15 @@ async function addMusic (message, song, isArray = false) {
       song.forEach((s) => {
         serverQueue.songs.push(s);
       })
-      return makeEmbedText(`${song.length} songs has been added`, (embed) => {
+      return makeEmbedText(`${song.length} Songs has been added`, (embed) => {
         message.channel.send(embed);
       })
     } else {
-      serverQueue.songs.push(song);
-      return message.channel.send(`The song has been added ${song.url}`);
+      serverQueue.songs.push(song)
+      const author = message.author.id
+      return makeEmbedText(`Queued ${song.title} [<@${author}>]`, (embed) => {
+        message.channel.send(embed);
+      })
     }
   }
 }
