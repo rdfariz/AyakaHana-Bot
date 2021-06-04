@@ -1,3 +1,11 @@
+const {
+  prefixPlayMusic,
+  prefixPlayMusic2,
+  prefixSkipMusic,
+  prefixStopMusic,
+  prefixDcMusic
+} = require('../config.json')
+
 const ytdl = require('ytdl-core')
 const ytpl = require('ytpl')
 const validUrl = require('valid-url');
@@ -16,20 +24,20 @@ const queue = new Map()
 async function music (client, msg) {
   const serverQueue = queue.get(msg.guild.id);
 
-  if (msg.content.startsWith('!!play')) {
-    execute(msg, serverQueue, '!!play');
+  if (msg.content.startsWith(prefixPlayMusic)) {
+    execute(msg, serverQueue, prefixPlayMusic);
     return;
-  } else if (msg.content.startsWith('!!p')) {
-    execute(msg, serverQueue, '!!p');
+  } else if (msg.content.startsWith(prefixPlayMusic2)) {
+    execute(msg, serverQueue, prefixPlayMusic2);
     return;
-  } else if (msg.content.startsWith('!!skip')) {
-    skip(msg, serverQueue, '!!skip');
+  } else if (msg.content.startsWith(prefixSkipMusic)) {
+    skip(msg, serverQueue, prefixSkipMusic);
     return;
-  } else if (msg.content.startsWith('!!stop')) {
-    stop(msg, serverQueue, '!!stop');
+  } else if (msg.content.startsWith(prefixStopMusic)) {
+    stop(msg, serverQueue, prefixStopMusic);
     return;
-  } else if (msg.content.startsWith('!!dc')) {
-    dc(msg, serverQueue, '!!dc')
+  } else if (msg.content.startsWith(prefixDcMusic)) {
+    dc(msg, serverQueue, prefixDcMusic)
   }
 }
 

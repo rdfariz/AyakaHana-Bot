@@ -1,5 +1,5 @@
 {
-  "name": "yuuki-bot",
+  "name": "kireihana-bot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "anime-pictures": "^1.2.4",
     "axios": "^0.21.1",
     "discord.js": "^12.5.3",
     "ffmpeg": "^0.0.4",
     "fluent-ffmpeg": "^2.1.2",
+    "moment": "^2.29.1",
     "node": "^15.12.0",
     "opusscript": "^0.0.8",
-    "random-anime": "^1.0.6",
     "valid-url": "^1.0.9",
     "ytdl-core": "^4.5.0",
     "ytpl": "^2.1.1",
