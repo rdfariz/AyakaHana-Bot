@@ -1,13 +1,27 @@
 const Discord = require("discord.js")
 const { MessageEmbed } = Discord
 
-async function makeEmbed ({ author = '', authorImage = '', title = '', image = '', desc = '' }, callback) {
+async function makeEmbed ({ author = '', authorImage = '', thumbnail = '', footer = '', title = '', image = '', desc = '' }, callback) {
   const embed = await new MessageEmbed()
     .setAuthor(author, authorImage)
     .setTitle(title)
     .setImage(image)
     .setColor(0xff0000)
-    .setDescription(desc);
+    .setDescription(desc)
+    .setThumbnail(thumbnail)
+    .setFooter(footer);
+  return callback(embed)
+}
+
+async function makeEmbedLyrics ({ author = '', authorImage = '', url = '', thumbnail = '', title = '', image = '', desc = '' }, callback) {
+  const embed = await new MessageEmbed()
+    .setAuthor(author, authorImage)
+    .setTitle(title)
+    .setImage(image)
+    .setColor(0xff0000)
+    .setDescription(desc)
+    .setThumbnail(thumbnail)
+    .addField('Source:', `[Full Lyrics](${url})`, true)
   return callback(embed)
 }
 
@@ -26,4 +40,4 @@ function makeEmbedText (text, callback) {
   return callback(embed)
 }
 
-module.exports = { makeEmbed, makeEmbedText, makeEmbedWelcome }
+module.exports = { makeEmbed, makeEmbedText, makeEmbedWelcome, makeEmbedLyrics }

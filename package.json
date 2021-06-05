@@ -15,6 +15,8 @@
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.3.0",
     "fluent-ffmpeg": "^2.1.2",
+    "genius-lyrics": "^4.2.9",
+    "genius-lyrics-api": "^3.0.6",
     "moment": "^2.29.1",
     "node": "^15.12.0",
     "opusscript": "^0.0.8",

@@ -6,6 +6,7 @@ const { prefix, prefixSplit, token } = require("./config.json")
 const greeting = require("./modules/greeting")
 const split = require("./modules/split")
 const music = require("./modules/music")
+const lyrics = require("./modules/lyrics")
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
@@ -22,6 +23,7 @@ client.on("message", async msg => {
   }
 
   music(client, msg)
+  lyrics(client, msg)
 })
 
 client.login(token)

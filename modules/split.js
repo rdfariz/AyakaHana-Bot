@@ -41,7 +41,7 @@ module.exports = async (client, msg) => {
 
   // Security
   if (minute.toString().length > 2 || seconds.toString().length > 2 || parseInt(player) <= 0) {
-    makeEmbed({ title: 'Invalid Format', desc: 'Valid Format: mm:ss/part' }, (embed) => {
+    makeEmbed({ title: 'Invalid Format', desc: 'Valid Format: !!split mm:ss/part' }, (embed) => {
       msg.reply(embed)
     })
 
